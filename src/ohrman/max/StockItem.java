@@ -3,14 +3,15 @@ package ohrman.max;
 public class StockItem implements Comparable<StockItem> {
     private final String name;
     private double price;
-    private int quantityStock = 0;
+    private int quantityStock;
 
     public StockItem(String name, double price) {
         this.name = name;
         this.price = price;
+        this.quantityStock = 0;
     }
 
-    //Overload constructor to optionally set a quantityStock
+    //Overload constructor to optionally set a quantityStock when creating the instance
     public StockItem(String name, double price, int quantityStock) {
         this.name = name;
         this.price = price;
@@ -41,7 +42,6 @@ public class StockItem implements Comparable<StockItem> {
             this.quantityStock = newQuantity;
         }
     }
-
 
     @Override
     public boolean equals(Object obj) {
