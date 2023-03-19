@@ -1,5 +1,6 @@
 package ohrman.max;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,5 +44,28 @@ public class StockList {
         return 0;
     }
 
+    //Pass the name of a stock item and return it as a object
+    public StockItem get(String key) {
+        return list.get(key);
+    }
 
+    public Map<String, StockItem> Items() {
+        return Collections.unmodifiableMap(list);
+    }
+
+    @Override
+    public String toString() {
+        String s = "\nStock List\n";
+        double totalCost = 0.0;
+        for (Map.Entry<String, StockItem> item : list.entrySet()) {
+            StockItem stockItem = item.getValue(); // a single item
+            double itemValue = stockItem.getPrice() * stockItem.getQuantityStock();
+
+            s = s + stockItem + ". There are " + stockItem.getQuantityStock() + " in stock. Value of items: ";
+            s = s + +itemValue + "\n";
+            totalCost += itemValue;
+        }
+
+        return s + "Total stock value " + totalCost;
+    }
 }
