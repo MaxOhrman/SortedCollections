@@ -53,6 +53,7 @@ public class StockList {
         return Collections.unmodifiableMap(list);
     }
 
+    //This is a bad idea in production, we should instead implement proper debugging code.
     @Override
     public String toString() {
         String s = "\nStock List\n";
