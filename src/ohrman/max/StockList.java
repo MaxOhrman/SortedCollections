@@ -30,5 +30,18 @@ public class StockList {
         return 0;
     }
 
+    //Returns the amount of items sold if that amount exists in stock, otherwise return 0
+    public int sellStock(String item, int quantity) {
+        StockItem inStock = list.getOrDefault(item, null);
+        // If item exist in list, its quantity is above the amount we want to sell and the amount we want to sell
+        // is not negative or 0
+        if ((inStock != null) && (list.get(item).getQuantityStock() >= quantity) && (quantity > 0)) {
+            inStock.adjustStock(-quantity);
+            return quantity;
+        }
+
+        return 0;
+    }
+
 
 }
