@@ -49,8 +49,8 @@ public class StockList {
         return list.get(key);
     }
 
-    public Map<String, StockItem> Items() {
-        return Collections.unmodifiableMap(list);
+    public Map<String, StockItem> items() {
+        return Collections.unmodifiableMap(list); // we don't want this Map to be modified. This is faster than creating a new one
     }
 
     //This is a bad idea in production, we should instead implement proper debugging code.
