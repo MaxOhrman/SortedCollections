@@ -1,5 +1,7 @@
 package ohrman.max;
 
+import com.sun.jdi.Value;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -63,7 +65,7 @@ public class StockList {
             double itemValue = stockItem.getPrice() * stockItem.quantityInStock();
 
             s = s + stockItem + ". There are " + stockItem.quantityInStock() + " in stock. Value of items: ";
-            s = s + +itemValue + "\n";
+            s = s + itemValue + "\n";
             totalCost += itemValue;
         }
 
