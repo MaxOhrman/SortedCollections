@@ -92,6 +92,6 @@ public class StockItem implements Comparable<StockItem> {
     //For testing purposes
     @Override
     public String toString() {
-        return this.name + this.price;
+        return this.name + " : " + this.price;
     }
 }
