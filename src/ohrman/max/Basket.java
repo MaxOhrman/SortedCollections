@@ -41,7 +41,7 @@ public class Basket {
     // For testing purposes
     @Override
     public String toString() {
-        String s = "\nShopping basket " + name + " contains " + list.size() + " items\n";
+        String s = "\nShopping basket " + name + " contains " + list.size() + ((list.size() == 1) ? " item " : " items") + "\n";
         double totalCost = 0.0;
         for(Map.Entry<StockItem, Integer> item : list.entrySet() ) {
             s = s + item.getKey() + ". " + item.getValue() + " purchased\n";
