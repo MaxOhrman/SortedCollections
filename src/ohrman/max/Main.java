@@ -1,7 +1,7 @@
 package ohrman.max;
 
 public class Main {
-    private static StockList stockList = new StockList();
+    private static final StockList stockList = new StockList();
 
     public static void main(String[] args) {
         StockItem temp = new StockItem("bread", 0.86, 100);
@@ -65,23 +65,19 @@ public class Main {
     }
 
     /**
-     *
-     * @param basket - basket in which item is placed if exists
-     * @param item - the item we want to sell
+     * @param basket   - basket in which item is placed if exists
+     * @param item     - the item we want to sell
      * @param quantity - the amount of items
-     * @return - returns the quantity sold, can be 0.
      */
-    public static int sellItem(Basket basket, String item, int quantity) {
+    public static void sellItem(Basket basket, String item, int quantity) {
         //retrieve the item from stock list first
         StockItem stockItem = stockList.get(item);
         if(stockItem == null) {
             System.out.println("We don't sell " + item);
-            return 0;
+            return;
         }
         if(stockList.sellStock(item, quantity) !=0) {
             basket.addToBasket(stockItem, quantity);
-            return quantity;
         }
-        return 0;
     }
 }
